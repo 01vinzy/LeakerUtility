@@ -1,0 +1,50 @@
+﻿<Window x:Class="FNLeaking.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FNLeaking3"
+        mc:Ignorable="d"
+        Title="FNLeaking" Height="450" Width="800"
+        ResizeMode="CanMinimize" Icon="Icon.ico" Background="Black">
+    <Grid HorizontalAlignment="Left" Width="794" Margin="0,0,0,-3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="53*"/>
+            <ColumnDefinition Width="739*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFAF50FF" Offset="0"/>
+                <GradientStop Color="#FF59E8FF" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Button Content="Generate New Cosmetics" HorizontalAlignment="Left" Margin="212.958,142,0,0" Click="NewCosmeticsButton_Click_1" VerticalAlignment="Top" Width="245" Height="45" FontSize="16" BorderBrush="Black" FontWeight="Bold" FontFamily="Arial" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush ImageSource="background2.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Generate New Map" HorizontalAlignment="Left" Margin="220,215,0,0" Click="NewMapButton_Click_2" VerticalAlignment="Top" Width="229" Height="45" FontSize="16" BorderBrush="Black" FontWeight="Bold" FontFamily="Arial" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush ImageSource="background2.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Generate New Aes Key" HorizontalAlignment="Left" Margin="220,289,0,0" VerticalAlignment="Top" Width="229" Height="45" FontSize="16" BorderBrush="Black" FontWeight="Bold" FontFamily="Arial" Grid.Column="1" Click="AesKeyButton_Click_3">
+            <Button.Background>
+                <ImageBrush ImageSource="background2.png"/>
+            </Button.Background>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" Margin="179,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="315" FontSize="44" FontWeight="Bold" Grid.Column="1"><Run FontFamily="Burbank Big CD" Text="Welcome To "/><Run FontFamily="Burbank Big CD" Text="FNLeaking"/></TextBlock>
+        <Button Content="" HorizontalAlignment="Left" Margin="28,371,0,0" Click="TwitterButton_Click_4" VerticalAlignment="Top" Width="38" Height="33" FontSize="16" FontWeight="Bold" FontFamily="Arial" BorderBrush="#0061DBFF" RenderTransformOrigin="-1.317,1.088" Grid.ColumnSpan="2">
+            <Button.Background>
+                <ImageBrush ImageSource="twitter.png" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <Button Content="" HorizontalAlignment="Left" Margin="18,364,0,0" Click="GithubButton_Click_5" VerticalAlignment="Top" Width="40" Height="40" FontSize="16" FontWeight="Bold" FontFamily="Arial" BorderBrush="#0061DBFF" RenderTransformOrigin="-1.317,1.088" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush ImageSource="github.png" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="687,385,0,0" TextWrapping="Wrap" Text="v0.1" VerticalAlignment="Top" FontWeight="Bold" Height="19" Width="36" FontSize="16"/>
+
+    </Grid>
+</Window>
