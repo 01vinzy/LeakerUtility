@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FNLeaking"
         mc:Ignorable="d"
-        Title="FNLeaking" Height="450" Width="800"
+        Title="FNLeaking" Height="452.848" Width="818.994"
         ResizeMode="CanMinimize" Icon="Icons/Icon.ico" Background="Black">
-    <Grid HorizontalAlignment="Left" Width="794" Margin="0,0,0,-3">
+    <Grid HorizontalAlignment="Left" Width="812" Margin="0,0,-18,-11">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="53*"/>
             <ColumnDefinition Width="739*"/>
@@ -18,7 +18,7 @@
                 <GradientStop Color="Black" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Button Content="Generate New Cosmetics" HorizontalAlignment="Left" Margin="212.958,142,0,0" Click="NewCosmeticsButton_Click_1" VerticalAlignment="Top" Width="245" Height="45" FontSize="16" BorderBrush="Black" FontWeight="Bold" FontFamily="Arial" Grid.Column="1" RenderTransformOrigin="0.5,0.5">
+        <Button Content="Generate New Cosmetics" HorizontalAlignment="Left" Margin="235,116,0,0" Click="NewCosmeticsButton_Click_1" VerticalAlignment="Top" Width="245" Height="45" FontSize="17" BorderBrush="Black" FontFamily="Arial" Grid.Column="1" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -31,7 +31,7 @@
                 <ImageBrush ImageSource="Icons/image.png"/>
             </Button.Background>
         </Button>
-        <Button Content="Generate New Map" HorizontalAlignment="Left" Margin="220,215,0,0" Click="NewMapButton_Click_2" VerticalAlignment="Top" Width="229" Height="45" FontSize="16" BorderBrush="Black" FontWeight="Bold" FontFamily="Arial" Grid.Column="1" RenderTransformOrigin="0.5,0.5">
+        <Button Content="Generate  Map" HorizontalAlignment="Left" Margin="236,185,0,0" Click="NewMapButton_Click_2" VerticalAlignment="Top" Width="233" Height="49" FontSize="18" BorderBrush="Black" FontWeight="Bold" FontFamily="Arial" Grid.Column="1" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -44,7 +44,7 @@
                 <ImageBrush ImageSource="Icons/image.png"/>
             </Button.Background>
         </Button>
-        <Button Content="Generate New Aes Key" HorizontalAlignment="Left" Margin="220,289,0,0" VerticalAlignment="Top" Width="229" Height="45" FontSize="16" BorderBrush="Black" FontWeight="Bold" FontFamily="Arial" Grid.Column="1" Click="AesKeyButton_Click_3" RenderTransformOrigin="0.5,0.5">
+        <Button Content="Generate Aes Key" HorizontalAlignment="Left" Margin="237,257,0,0" VerticalAlignment="Top" Width="229" Height="49" FontSize="18" BorderBrush="Black" FontFamily="Arial" Grid.Column="1" Click="AesKeyButton_Click_3" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -57,46 +57,18 @@
                 <ImageBrush ImageSource="Icons/image.png"/>
             </Button.Background>
         </Button>
-        <TextBlock HorizontalAlignment="Left" Margin="179,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="169" FontSize="44" FontWeight="Bold" Grid.Column="1" Foreground="White" RenderTransformOrigin="0.5,0.5">
-            <TextBlock.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="-5"/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </TextBlock.RenderTransform><Run FontFamily="Burbank Big CD" Text="Welcome To "/></TextBlock>
         <Button Content="" HorizontalAlignment="Left" Margin="28,359,0,0" Click="TwitterButton_Click_4" VerticalAlignment="Top" Width="38" Height="33" FontSize="16" FontWeight="Bold" FontFamily="Arial" BorderBrush="#0061DBFF" RenderTransformOrigin="-1.317,1.088" Grid.ColumnSpan="2">
             <Button.Background>
                 <ImageBrush ImageSource="Icons/twitter.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
-        <Button Content="" HorizontalAlignment="Left" Margin="18,350,0,0" Click="GithubButton_Click_5" VerticalAlignment="Top" Width="67" Height="54" FontSize="16" FontWeight="Bold" FontFamily="Arial" RenderTransformOrigin="-1.317,1.088" Grid.Column="1" BorderBrush="Black">
+        <Button Content="" HorizontalAlignment="Left" Margin="17,350,0,0" Click="GithubButton_Click_5" VerticalAlignment="Top" Width="68" Height="54" FontSize="16" FontWeight="Bold" FontFamily="Arial" RenderTransformOrigin="-1.317,1.088" Grid.Column="1" BorderBrush="Black">
             <Button.Background>
                 <ImageBrush ImageSource="Icons/githubwhite.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="687,385,0,0" TextWrapping="Wrap" Text="v0.1" VerticalAlignment="Top" FontWeight="Bold" Height="19" Width="36" FontSize="16"/>
-        <TextBlock HorizontalAlignment="Left" Margin="360,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="142" FontSize="44" FontWeight="Bold" Grid.Column="1" RenderTransformOrigin="0.5,0.5">
-            <TextBlock.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="-10"/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </TextBlock.RenderTransform>
-            <TextBlock.Foreground>
-                <ImageBrush ImageSource="Icons/image.png"/>
-            </TextBlock.Foreground>
-            <TextBlock.Background>
-                <ImageBrush/>
-            </TextBlock.Background><Run FontFamily="Burbank Big CD" Text="FNLeaking">
-                <Run.Background>
-                    <ImageBrush TileMode="FlipX"/>
-                </Run.Background>
-            </Run></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="684,383,-70,-11" TextWrapping="Wrap" VerticalAlignment="Top" Height="52" Width="127" FontSize="16" FontWeight="Bold" Grid.Column="1" RenderTransformOrigin="0.5,0.5" Foreground="#FF00FFB9">
+        <TextBlock HorizontalAlignment="Left" Margin="707,384,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="41" FontSize="16" FontWeight="Bold" Grid.Column="1" RenderTransformOrigin="0.5,0.5" Foreground="#FF00FFB9" Text="v0.3">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -104,11 +76,21 @@
                     <RotateTransform/>
                     <TranslateTransform X="-5"/>
                 </TransformGroup>
-            </TextBlock.RenderTransform><Run Text="v0.2">
-                <Run.Background>
-                    <ImageBrush TileMode="FlipX"/>
-                </Run.Background>
-            </Run></TextBlock>
+            </TextBlock.RenderTransform></TextBlock>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="70" Margin="176,34,0,0" VerticalAlignment="Top" Width="374" OpacityMask="Black" Source="Icons/welcome.PNG"/>
+        <Button Content="Generate BR News " HorizontalAlignment="Left" Margin="233,327,0,0" VerticalAlignment="Top" Width="231" Height="49" FontSize="18" BorderBrush="Black" FontWeight="Bold" FontFamily="Arial" Grid.Column="1" Click="BRNewsButton_Click_3" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-5"/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="Icons/image.png"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>

@@ -1,14 +1,17 @@
-﻿using System;
+﻿using FNLeaking.Windows;
+using Newtonsoft.Json.Linq;
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Net;
 using System.Windows;
 
+
 namespace FNLeaking
 {
     public partial class MainWindow : Window
     {
-        WebClient wc = new WebClient();
+        readonly WebClient wc = new WebClient();
 
         protected void GithubButton_Click_5(object sender, RoutedEventArgs e)
         {
@@ -21,28 +24,35 @@ namespace FNLeaking
         }
         protected void AesKeyButton_Click_3(object sender, RoutedEventArgs e)
         {
-            wc.DownloadFileCompleted += new AsyncCompletedEventHandler(FileDownloadComplete);
-            Uri imageurl = new Uri("https://fortniteassistant.xyz/api/aes/txt");
-            wc.DownloadFileAsync(imageurl, "aes.txt");
+            WebClient Client = new WebClient();
+            Client.DownloadFile("https://fortniteassistant.xyz/api/aes/txt", "Aes.txt");
+            DownloadedBox downloadedbox = new DownloadedBox();
+            downloadedbox.Show();
         }
 
         protected void NewMapButton_Click_2(object sender, RoutedEventArgs e)
         {
-            wc.DownloadFileCompleted += new AsyncCompletedEventHandler(FileDownloadComplete);
-            Uri imageurl = new Uri("https://media.fortniteapi.io/images/map.png?showPOI=false&lang=eng");
-            wc.DownloadFileAsync(imageurl, "Map.png");
+            WebClient Client = new WebClient();
+            Client.DownloadFile("https://media.fortniteapi.io/images/map.png?showPOI=false&lang=eng", "Map.png");
+            DownloadedBox downloadedbox = new DownloadedBox();
+            downloadedbox.Show();
         }
-
+        
         protected void NewCosmeticsButton_Click_1(object sender, RoutedEventArgs e)
         {
-            wc.DownloadFileCompleted += new AsyncCompletedEventHandler(FileDownloadComplete);
-            Uri imageurl = new Uri("https://fortniteassistant.xyz/api/leaks/");
-            wc.DownloadFileAsync(imageurl, "leaks.png");
+            WebClient Client = new WebClient();
+            Client.DownloadFile("https://fortniteassistant.xyz/api/leaks/", "Cosmetics.png");
+            DownloadedBox downloadedbox = new DownloadedBox();
+            downloadedbox.Show();
         }
 
-        private void FileDownloadComplete(object sender, AsyncCompletedEventArgs e)
+        private void BRNewsButton_Click_3(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Download Completed");
+            var data = new WebClient().DownloadString("https://fortnite-api.com/v2/news/br");
+            var json = JObject.Parse(data)["data"]["image"].ToString();
+            new WebClient().DownloadFile(json, "news.gif");
+            DownloadedBox downloadedbox = new DownloadedBox();
+            downloadedbox.Show();
         }
     }
 }
