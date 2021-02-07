@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FNLeaking"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="FNLeaking" Height="452.848" Width="818.994"
         ResizeMode="CanMinimize" Icon="Icons/Icon.ico" Background="Black">
     <Grid HorizontalAlignment="Left" Width="812" Margin="0,0,-18,-11">
