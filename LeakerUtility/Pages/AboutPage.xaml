@@ -8,10 +8,13 @@
 
     <ScrollViewer>
         <Grid Margin="24,0">
-            <TextBlock Text="LeakerUtility is a multifunctional and open-source program used for generating data from Fortnite's backend using Fortnite-API.com and benbotfn.tk.&#x0a;&#x0a;Current features include:&#x0a;• Generating an image of the Battle Royale map&#x0a;• Generating AES key data for decrypting game files&#x0a;• Generating new cosmetic data from the latest update&#x0a;• Generating the Battle Royale news feed as a .gif image&#x0a;• Generating Shop Section data to determine upcoming shop sections" FontSize="16" TextWrapping="Wrap" />
-
-            <TextBlock Height="40" Margin="0,185,1017,164" Text="&#xf09b;" FontFamily="{StaticResource FA-Brands}" FontSize="36" HorizontalAlignment="Center" Cursor="Hand" />
-            <Label Height="40" Margin="0,230,1017,119" Content="&#xf099;" FontFamily="{StaticResource FA-Brands}" FontSize="36" HorizontalAlignment="Center" Cursor="Hand" />
+            <TextBlock FontSize="16" TextWrapping="Wrap" ><Run Text="LeakerUtility is a multifunctional and open-source program used for generating data from Fortnite's backend using Fortnite-API.com and benbotfn.tk.&#xA;&#xA;Current features include:&#xA;• Generating an image of the Battle Royale map&#xA;• Generating AES key data for decrypting game files&#xA;• Generating new cosmetic data from the latest update&#xA;• Generating the Battle Royale news feed as a .gif image&#xA;• Generating Shop Section data to determine upcoming shop sections&#xA;&#xA;p.s. use code &quot;darkblade&quot; #ad &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;"/>
+                <InlineUIContainer>
+                    <Label Height="40" Content="&#xF099; " FontFamily="{StaticResource FA-Brands}" FontSize="36" HorizontalContentAlignment="Center" Cursor="Hand" MouseDown="TwitterLabel_MouseDown" />
+                </InlineUIContainer>
+                <InlineUIContainer>
+                    <Label Height="40" Content="&#xF09B; " FontFamily="{StaticResource FA-Brands}" FontSize="36" HorizontalContentAlignment="Center" Cursor="Hand" MouseDown="GitHubLabel_MouseDown" />
+                </InlineUIContainer></TextBlock>
         </Grid>
     </ScrollViewer>
 </ui:Page>

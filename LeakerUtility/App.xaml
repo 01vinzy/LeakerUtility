@@ -6,9 +6,7 @@
     StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-
-            <FontFamily x:Key="FA-Brands">pack://application:,,,/Resources/Fonts/Font Awesome/FA-Brands-Regular.otf#Font Awesome 5 Brands Regular</FontFamily>
-
+            <FontFamily x:Key="FA-Brands">pack://application:,,,/Resources/Files/FA-Brands-Regular.otf#Font Awesome 5 Brands Regular</FontFamily>
             <ResourceDictionary.MergedDictionaries>
                 <ui:ThemeResources />
                 <ui:XamlControlsResources />

@@ -117,7 +117,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <Resource Include="Resources\Fonts\Font Awesome\FA-Brands-Regular.otf" />
+    <EmbeddedResource Include="Resources\Files\JsonFormatting.xshd" />
+    <Resource Include="Resources\Files\FA-Brands-Regular.otf" />
     <Resource Include="Resources\Images\icon.ico" />
     <Resource Include="Resources\Images\TwitterIcon.png" />
     <Resource Include="Resources\Images\GitHubIcon.png" />
@@ -134,8 +135,16 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>  
+  </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AvalonEdit">
+      <Version>6.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Costura.Fody">
+      <Version>5.0.2</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="ModernWpfUI">
       <Version>0.9.3</Version>
     </PackageReference>
@@ -143,5 +152,6 @@
       <Version>12.0.3</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

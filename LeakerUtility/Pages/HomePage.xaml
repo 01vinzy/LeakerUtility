@@ -3,13 +3,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
     mc:Ignorable="d"
     xmlns:ui="http://schemas.modernwpf.com/2019">
-    
-    <ScrollViewer>
+
+    <ScrollViewer Width="754">
         <Grid Margin="24,0">
-            <GroupBox Header="Generate Shit">
-            </GroupBox>
+            <avalonedit:TextEditor x:Name="JSONOutput"
+                FontFamily="Consolas" FontSize="10pt"
+                ShowLineNumbers="True" IsReadOnly="True"
+                HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                MaxHeight="391" Margin="0,0,256,0" Background="#FF262626"/>
+            <Button Content="Generate one thing" Margin="500,52,0,307" Style="{StaticResource AccentButtonStyle}" Click="Button_Click"/>
+
         </Grid>
     </ScrollViewer>
 </ui:Page>
