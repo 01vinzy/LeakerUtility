@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Net;
 using System.Windows;
 
@@ -51,6 +52,15 @@ namespace FNLeaking
             var data = new WebClient().DownloadString("https://fortnite-api.com/v2/news/br");
             var json = JObject.Parse(data)["data"]["image"].ToString();
             new WebClient().DownloadFile(json, "news.gif");
+            DownloadedBox downloadedbox = new DownloadedBox();
+            downloadedbox.Show();
+        }
+
+        private void ShopSectionsButton_Click_2(object sender, RoutedEventArgs e)
+        {
+            var data = new WebClient().DownloadString("https://benbotfn.tk/api/v1/calendar");
+            var json = JObject.Parse(data)["data"]["sectionStoreEnds"].ToString();
+            File.WriteAllText(json, "ShopSections.json");
             DownloadedBox downloadedbox = new DownloadedBox();
             downloadedbox.Show();
         }
