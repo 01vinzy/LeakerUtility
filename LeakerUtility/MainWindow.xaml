@@ -48,7 +48,7 @@
             IsBackButtonVisible="Visible"
             IsTitleBarAutoPaddingEnabled="False"
             IsPaneOpen="True"
-            OpenPaneLength="125"
+            OpenPaneLength="150"
             IsBackEnabled="{Binding ElementName=ContentFrame, Path=CanGoBack}"
             BackRequested="NavView_BackRequested"
             ItemInvoked="NavView_ItemInvoked"

@@ -95,8 +95,10 @@ namespace LeakerUtility
                 if (ContentFrame.CurrentSourcePageType != pageType)
                     ContentFrame.Navigate(pageType);
 
-                var selectedItem = (NavigationViewItem)NavView.SelectedItem;
-                NavView.Header = App.LocalizedStrings.Where(x => x.Key == (string)selectedItem.Content + "PageHeader")?.FirstOrDefault().Value;
+                ContentFrame.ContentRendered += delegate
+                {
+                    NavView.Header = App.LocalizedStrings.Where(x => x.Key == pageType.Name + "Header")?.FirstOrDefault().Value;
+                };
             }
         }
 
@@ -105,8 +107,11 @@ namespace LeakerUtility
             if (ContentFrame.CurrentSourcePageType != sourcePageType)
                 ContentFrame.Navigate(sourcePageType);
 
-            var selectedItem = (NavigationViewItem)NavView.SelectedItem;
-            NavView.Header = App.LocalizedStrings.Where(x => x.Key == (string)selectedItem.Content + "PageHeader")?.FirstOrDefault().Value;
+            ContentFrame.ContentRendered += delegate
+            {
+                var pageType = ContentFrame.Content.GetType();
+                NavView.Header = App.LocalizedStrings.Where(x => x.Key == pageType.Name + "Header")?.FirstOrDefault().Value;
+            };
         }
 
         private Type GetPageType(NavigationViewItem item)

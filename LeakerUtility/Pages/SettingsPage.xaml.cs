@@ -1,10 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Globalization;
+using System.Windows;
+using System.Windows.Controls;
 using ModernWpf.Controls.Primitives;
 using Microsoft.WindowsAPICodePack.Dialogs;
-using System.IO;
 
 namespace LeakerUtility.Pages
 {
@@ -17,23 +17,39 @@ namespace LeakerUtility.Pages
         {
             InitializeComponent();
 
-            var header = ControlHelper.GetHeader(ExportPathTextBox);
-
-            ExportingHeader.Text = App.LocalizedStrings.Where(x => x.Key == "ExportingHeader")?.FirstOrDefault().Value;
-            header = App.LocalizedStrings.Where(x => x.Key == "JsonExportPathTextBox")?.FirstOrDefault().Value;
-            ExportJsonDataCheckBox.Content = App.LocalizedStrings.Where(x => x.Key == "ExportJsonDataLabel")?.FirstOrDefault().Value;
-            ShowPOINamesOnMapCheckBox.Content = App.LocalizedStrings.Where(x => x.Key == "POINamesOnMapLabel")?.FirstOrDefault().Value;
-            SaveButton.Content = App.LocalizedStrings.Where(x => x.Key == "SaveButtonText")?.FirstOrDefault().Value;
+            foreach (var control in GridPanel.Children)
+            {
+                switch (control.GetType().Name)
+                {
+                    case "TextBox":
+                        var textBox = (TextBox)control;
+                        ControlHelper.SetHeader(textBox, App.LocalizedStrings.Where(x => x.Key == textBox.Name + "HeaderText")?.FirstOrDefault().Value);
+                        break;
+                    case "TextBlock":
+                        var textBlock = (TextBlock)control;
+                        textBlock.Text = App.LocalizedStrings.Where(x => x.Key == textBlock.Name + "Text")?.FirstOrDefault().Value;
+                        break;
+                    case "CheckBox":
+                        var checkBox = (CheckBox)control;
+                        checkBox.Content = App.LocalizedStrings.Where(x => x.Key == checkBox.Name + "Text")?.FirstOrDefault().Value;
+                        break;
+                    case "Button":
+                        var button = (Button)control;
+                        if (!string.IsNullOrEmpty(button.Name))
+                            button.Content = App.LocalizedStrings.Where(x => x.Key == button.Name + "Text")?.FirstOrDefault().Value;
+                        break;
+                }
+            }
 
             App.ConfigService.LoadConfig();
             var config = App.ConfigService.Config;
             
             ExportPathTextBox.Text = config.ExportPath;
             ExportJsonDataCheckBox.IsChecked = config.ExportJsonData;
-            ShowPOINamesOnMapCheckBox.IsChecked = config.ShowMapPOINames;
+            POINamesOnMapCheckBox.IsChecked = config.ShowMapPOINames;
         }
 
-        private void BrowseButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void BrowseButton_Click(object sender, RoutedEventArgs e)
         {
             var dialog = new CommonOpenFileDialog
             {
@@ -55,7 +71,7 @@ namespace LeakerUtility.Pages
             }
         }
 
-        private void SaveButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             var config = App.ConfigService.Config;
 
@@ -63,7 +79,7 @@ namespace LeakerUtility.Pages
 
             config.ExportPath = ExportPathTextBox.Text;
             config.ExportJsonData = (bool)ExportJsonDataCheckBox.IsChecked;
-            config.ShowMapPOINames = (bool)ShowPOINamesOnMapCheckBox.IsChecked;
+            config.ShowMapPOINames = (bool)POINamesOnMapCheckBox.IsChecked;
 
             App.ConfigService.SaveConfig(config);
         }

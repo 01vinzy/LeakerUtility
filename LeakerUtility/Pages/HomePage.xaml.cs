@@ -28,11 +28,8 @@ namespace LeakerUtility.Pages
             InitializeComponent();
             InitializeJsonDocument();
 
-            AESDataButton.Content = App.LocalizedStrings.Where(x => x.Key == "AESDataButtonText")?.FirstOrDefault().Value;
-            MapDataButton.Content = App.LocalizedStrings.Where(x => x.Key == "MapDataButtonText")?.FirstOrDefault().Value;
-            NewCosmeticsDataButton.Content = App.LocalizedStrings.Where(x => x.Key == "NewCosmeticsDataButtonText")?.FirstOrDefault().Value;
-            BRNewsDataButton.Content = App.LocalizedStrings.Where(x => x.Key == "BRNewsDataButtonText")?.FirstOrDefault().Value;
-            ShopSectionsDataButton.Content = App.LocalizedStrings.Where(x => x.Key == "ShopSectionsDataButtonText")?.FirstOrDefault().Value;
+            foreach (var button in PageGrid.Children.OfType<System.Windows.Controls.Button>())
+                button.Content = App.LocalizedStrings.Where(x => x.Key == button.Name + "Text")?.FirstOrDefault().Value;
 
             App.ConfigService.LoadConfig();
         }

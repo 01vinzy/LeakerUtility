@@ -8,7 +8,7 @@
     xmlns:ui="http://schemas.modernwpf.com/2019">
 
     <ScrollViewer Width="754">
-        <Grid Margin="24,0">
+        <Grid x:Name="PageGrid" Margin="24,0">
             <avalonedit:TextEditor x:Name="JsonOutput"
                 FontFamily="Consolas" FontSize="8pt"
                 ShowLineNumbers="True" IsReadOnly="True"

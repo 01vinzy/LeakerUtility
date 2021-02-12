@@ -9,14 +9,16 @@
   "NewCosmeticsDataButtonText": "New Cosmetics Data",
   "BRNewsDataButtonText": "BR News Data",
   "ShopSectionsDataButtonText": "Shop Sections Data",
+  "EventFlagsDataButtonText": "Event Flags Data",
+  "CalendarDataButtonText": "All Calendar Data",
 
   "AboutPageHeader": "About",
   "AboutTextBlock": "LeakerUtility is a multifunctional and open-source program used for generating data from Fortnite's backend using Fortnite-API.com and benbotfn.tk.\n\nCurrent features include:\n\u2022 Generating an image of the Battle Royale map\n\u2022 Generating AES key data for decrypting game files\n\u2022 Generating new cosmetic data from the latest update\n\u2022 Generating the Battle Royale news feed as a .gif image\n\u2022 Generating Shop Section data to determine upcoming shop sections\n\nHuge thanks to Darkblade for his contributions! You can follow him on Twitter at @DarkbladeEU, or use code \"darkblade\" #ad to support him. \n\n\n\n\n\n\n",
 
   "SettingsPageHeader": "Settings",
-  "ExportingHeader": "Exporting",
-  "JsonExportPathTextBox": "JSON Export Path",
-  "ExportJsonDataLabel": "Export JSON Data?",
-  "POINamesOnMapLabel": "Show POI names on Map image?",
+  "ExportingHeaderText": "Exporting",
+  "ExportPathTextBoxHeaderText": "JSON Export Path",
+  "ExportJsonDataCheckBoxText": "Export JSON Data?",
+  "POINamesOnMapCheckBoxText": "Show POI names on Map image?",
   "SaveButtonText": "Save"
 }

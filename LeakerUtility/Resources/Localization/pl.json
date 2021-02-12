@@ -1,0 +1,24 @@
+﻿{
+  "HomeNavigationItem": "Strona Główna",
+  "AboutNavigationItem": "O nas",
+  "SettingsNavigationItem": "Ustawienia",
+
+  "HomePageHeader": "Strona Głowna",
+  "AESDataButtonText": "Dane AES",
+  "MapDataButtonText": "Dane Mapy",
+  "NewCosmeticsDataButtonText": "Dane Nowe Skinów",
+  "BRNewsDataButtonText": "Dane Wiadomości BR",
+  "ShopSectionsDataButtonText": "Dane Sekcji Sklepu",
+  "EventFlagsDataButtonText": "Dane EventFlagów",
+  "CalendarDataButtonText": "Dane Kalendarza",
+
+  "AboutPageHeader": "O nas",
+  "AboutTextBlock": "LeakerUtility to wielofunkcyjny program używany do generowania informacji z backendu Fortnite używając Fortnite-API.com i benbotfn.tk.\n\nAktualne Możliwości:\n\u2022 Generowanie zdjęcia mapy Battle Royale\n\u2022 Generowanie Kluczy AES, aby odkodować pliki gry\n\u2022 Generowanie Nowych Skinów z ostatniej Aktualizacji\n\u2022 Generowanie Wiadomości Battle Royale jako gif / zdjęcie\n\u2022 Generowanie Sekcji Sklepu, aby określić nadchodzące skiny w sklepie\n\nWielkie dzieki dla Darkblade'a za zrobienie tego programu! Możecie zaobserwować go na Twitterze @DarkbladeEU, lub użyć jego kodu twórcy \"darkblade\" #ad, aby go wspierać. \n\n\n\n\n\n\n",
+
+  "SettingsPageHeader": "Ustawienia",
+  "ExportingHeaderText": "Eksportowanie",
+  "ExportPathTextBoxHeaderText": "Ścieżka eksportowania plików JSON",
+  "ExportJsonDataCheckBoxText": "Eksportować pliki JSON?",
+  "POINamesOnMapCheckBoxText": "Pokaż nazwy miejscówek na zdjęciu Mapy?",
+  "SaveButtonText": "Zapisz"
+}
