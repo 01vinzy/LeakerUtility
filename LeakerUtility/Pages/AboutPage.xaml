@@ -1,0 +1,22 @@
+﻿<ui:Page x:Class="LeakerUtility.Pages.AboutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d"
+    xmlns:ui="http://schemas.modernwpf.com/2019">
+
+    <ScrollViewer>
+        <Grid Margin="24,0">
+            <TextBlock x:Name="AboutTextBlock" FontSize="16" TextWrapping="Wrap">
+                <Run Text="LeakerUtility is a multifunctional and open-source program used for generating data from Fortnite's backend using Fortnite-API.com and benbotfn.tk.&#xA;&#xA;Current features include:&#xA;• Generating an image of the Battle Royale map&#xA;• Generating AES key data for decrypting game files&#xA;• Generating new cosmetic data from the latest update&#xA;• Generating the Battle Royale news feed as a .gif image&#xA;• Generating Shop Section data to determine upcoming shop sections&#xA;&#xA;p.s. use code &quot;darkblade&quot; #ad &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;"/>
+                <InlineUIContainer>
+                    <Label Height="40" Content="&#xF099; " FontFamily="{StaticResource FA-Brands}" FontSize="36" HorizontalContentAlignment="Center" Cursor="Hand" MouseDown="TwitterLabel_MouseDown" />
+                </InlineUIContainer>
+                <InlineUIContainer>
+                    <Label Height="40" Content="&#xF09B; " FontFamily="{StaticResource FA-Brands}" FontSize="36" HorizontalContentAlignment="Center" Cursor="Hand" MouseDown="GitHubLabel_MouseDown" />
+                </InlineUIContainer>
+            </TextBlock>
+        </Grid>
+    </ScrollViewer>
+</ui:Page>
