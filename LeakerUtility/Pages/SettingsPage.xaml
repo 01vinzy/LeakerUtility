@@ -9,17 +9,17 @@
     <ScrollViewer>
         <Grid Margin="24,0">
             <ui:SimpleStackPanel HorizontalAlignment="Left">
-                <TextBlock Text="Exporting" Style="{StaticResource BaseTextBlockStyle}" Margin="0,0,0,10" />
+                <TextBlock x:Name="ExportingHeader" Text="Exporting" Style="{StaticResource BaseTextBlockStyle}" Margin="0,0,0,10" />
                 <TextBox x:Name="ExportPathTextBox" ui:ControlHelper.Header="JSON Export Path" Margin="0,0,0,10" Width="400" Cursor="IBeam"/>
-                <CheckBox Content="Export JSON Data" Margin="0,0,0,10" />
-                <CheckBox Content="POI names on Map image" Margin="0,0,0,25"/>
+                <CheckBox x:Name="ExportJsonDataCheckBox" Content="Export JSON Data" Margin="0,0,0,10" />
+                <CheckBox x:Name="POINamesOnMapImageCheckBox" Content="POI names on Map image" Margin="0,0,0,25"/>
 
-                <TextBlock Text="Language" Style="{StaticResource BaseTextBlockStyle}" Margin="0,0,0,10" />
+                <TextBlock x:Name="LanguageHeader" Text="Language" Style="{StaticResource BaseTextBlockStyle}" Margin="0,0,0,10" />
                 <ComboBox x:Name="LanugageComboBox" Width="150" Margin="0,0,0,25">
                     <ComboBoxItem Content="English" IsSelected="True" />
                 </ComboBox>
 
-                <Button Content="Save" Style="{StaticResource AccentButtonStyle}" Width="80"/>
+                <Button x:Name="SaveButton" Content="Save" Style="{StaticResource AccentButtonStyle}" Width="80"/>
 
             </ui:SimpleStackPanel>
         </Grid>

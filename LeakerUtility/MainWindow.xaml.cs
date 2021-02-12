@@ -5,7 +5,6 @@ using ModernWpf.Controls;
 using LeakerUtility.Pages;
 using ModernWpf.Navigation;
 using System.Windows.Navigation;
-using System.Collections.Generic;
 
 namespace LeakerUtility
 {
@@ -22,10 +21,17 @@ namespace LeakerUtility
             {
                 UpdateAppTitle();
             };
+
         }
 
         void UpdateAppTitle()
         {
+            foreach (NavigationViewItem navigationItem in NavView.MenuItems)
+                navigationItem.Content = App.LocalizedStrings.Where(x => x.Key == (string)navigationItem.Content + "NavigationItem")?.FirstOrDefault().Value;
+
+            var settingsItem = NavView.SettingsItem as NavigationViewItem;
+            settingsItem.Content = App.LocalizedStrings.Where(x => x.Key == "SettingsNavigationItem")?.FirstOrDefault().Value;
+
             //ensure the custom title bar does not overlap window caption controls
             Thickness currMargin = AppTitleBar.Margin;
             AppTitleBar.Margin = new Thickness(currMargin.Left, currMargin.Top, TitleBar.GetSystemOverlayRightInset(this), currMargin.Bottom);
@@ -97,6 +103,9 @@ namespace LeakerUtility
         {
             if (ContentFrame.CurrentSourcePageType != sourcePageType)
                 ContentFrame.Navigate(sourcePageType);
+
+            var selectedItem = (NavigationViewItem)NavView.SelectedItem;
+            NavView.Header = App.LocalizedStrings.Where(x => x.Key == (string)selectedItem.Content + "PageHeader")?.FirstOrDefault().Value;
         }
 
         private Type GetPageType(NavigationViewItem item)
