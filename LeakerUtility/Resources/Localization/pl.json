@@ -13,7 +13,7 @@
   "CalendarDataButtonText": "Dane Kalendarza",
 
   "AboutPageHeader": "O nas",
-  "AboutTextBlock": "LeakerUtility to wielofunkcyjny program używany do generowania informacji z backendu Fortnite używając Fortnite-API.com i benbotfn.tk.\n\nAktualne Możliwości:\n\u2022 Generowanie zdjęcia mapy Battle Royale\n\u2022 Generowanie Kluczy AES, aby odkodować pliki gry\n\u2022 Generowanie Nowych Skinów z ostatniej Aktualizacji\n\u2022 Generowanie Wiadomości Battle Royale jako gif / zdjęcie\n\u2022 Generowanie Sekcji Sklepu, aby określić nadchodzące skiny w sklepie\n\nWielkie dzieki dla Darkblade'a za zrobienie tego programu! Możecie zaobserwować go na Twitterze @DarkbladeEU, lub użyć jego kodu twórcy \"darkblade\" #ad, aby go wspierać. \n\n\n\n\n\n\n",
+  "AboutTextBlock": "LeakerUtility to wielofunkcyjny program używany do generowania informacji z backendu Fortnite używając Fortnite-API.com i benbotfn.tk.\n\nAktualne Możliwości:\n\u2022 Generowanie zdjęcia mapy Battle Royale\n\u2022 Generowanie Kluczy AES, aby odkodować pliki gry\n\u2022 Generowanie Nowych Skinów z ostatniej Aktualizacji\n\u2022 Generowanie Wiadomości Battle Royale jako gif\n\u2022 Generowanie Sekcji Sklepu, aby określić nadchodzące w nim skiny\n\u2002 Generowanie informacji z kalendarza, aby określić np. Nadchodzące tryby gry\n\u2002 Generowanie EventFlagów, aby zobaczyć jakie wydarzenia aktualnie trwają\n\u2002 Obsługa innych języków dla osób, które niekoniecznie znają angielski.\n\nWielkie dzieki dla Darkblade'a za zrobienie tego programu! Możecie zaobserwować go na Twitterze @DarkbladeEU, lub użyć jego kodu twórcy \"darkblade\" #ad, aby go wspierać. \n\n\n\n\n\n\n",
 
   "SettingsPageHeader": "Ustawienia",
   "ExportingHeaderText": "Eksportowanie",

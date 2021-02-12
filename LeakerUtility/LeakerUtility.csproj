@@ -51,8 +51,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>Resources\Images\Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -125,7 +124,6 @@
     <EmbeddedResource Include="Resources\Localization\en.json" />
     <EmbeddedResource Include="Resources\Localization\pl.json" />
     <Resource Include="Resources\Files\FA-Brands-Regular.otf" />
-    <Resource Include="Resources\Images\icon.ico" />
     <Resource Include="Resources\Images\TwitterIcon.png" />
     <Resource Include="Resources\Images\GitHubIcon.png" />
     <Resource Include="Resources\Images\Gradient.png" />
@@ -161,6 +159,8 @@
       <Version>1.1.1</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Images\Icon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

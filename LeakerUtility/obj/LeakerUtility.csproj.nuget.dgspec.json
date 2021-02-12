@@ -1,0 +1,75 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\wikto\\Downloads\\LeakerUtility-main\\LeakerUtility-main\\LeakerUtility\\LeakerUtility.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\wikto\\Downloads\\LeakerUtility-main\\LeakerUtility-main\\LeakerUtility\\LeakerUtility.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\wikto\\Downloads\\LeakerUtility-main\\LeakerUtility-main\\LeakerUtility\\LeakerUtility.csproj",
+        "projectName": "LeakerUtility",
+        "projectPath": "C:\\Users\\wikto\\Downloads\\LeakerUtility-main\\LeakerUtility-main\\LeakerUtility\\LeakerUtility.csproj",
+        "packagesPath": "C:\\Users\\wikto\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wikto\\Downloads\\LeakerUtility-main\\LeakerUtility-main\\LeakerUtility\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\wikto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "dependencies": {
+            "AvalonEdit": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Costura.Fody": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "ModernWpfUI": {
+              "target": "Package",
+              "version": "[0.9.3, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "WindowsAPICodePack-Shell": {
+              "target": "Package",
+              "version": "[1.1.1, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
