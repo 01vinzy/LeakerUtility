@@ -3,6 +3,7 @@ using System.Windows;
 using Newtonsoft.Json;
 using System.Reflection;
 using System.Globalization;
+using LeakerUtility.Services;
 using System.Collections.Generic;
 
 namespace LeakerUtility
@@ -12,10 +13,13 @@ namespace LeakerUtility
     /// </summary>
     public partial class App : Application
     {
+        public static IConfigService ConfigService { get; private set; }
         public static Dictionary<string, string> LocalizedStrings { get; private set; }
 
         public App()
         {
+            ConfigService = new ConfigService();
+
             var assembly = Assembly.GetExecutingAssembly();
             var currentCulture = CultureInfo.CurrentCulture;
 

@@ -16,8 +16,7 @@
   "SettingsPageHeader": "Settings",
   "ExportingHeader": "Exporting",
   "JsonExportPathTextBox": "JSON Export Path",
-  "ExportJsonDataLabel": "Export JSON Data",
-  "POINamesOnMapLabel": "POI names on Map image",
-  "LanguageHeader": "Language",
+  "ExportJsonDataLabel": "Export JSON Data?",
+  "POINamesOnMapLabel": "Show POI names on Map image?",
   "SaveButtonText": "Save"
 }

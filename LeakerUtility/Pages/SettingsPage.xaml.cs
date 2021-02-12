@@ -1,7 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Reflection;
 using System.Globalization;
 using ModernWpf.Controls.Primitives;
+using Microsoft.WindowsAPICodePack.Dialogs;
+using System.IO;
 
 namespace LeakerUtility.Pages
 {
@@ -19,17 +22,50 @@ namespace LeakerUtility.Pages
             ExportingHeader.Text = App.LocalizedStrings.Where(x => x.Key == "ExportingHeader")?.FirstOrDefault().Value;
             header = App.LocalizedStrings.Where(x => x.Key == "JsonExportPathTextBox")?.FirstOrDefault().Value;
             ExportJsonDataCheckBox.Content = App.LocalizedStrings.Where(x => x.Key == "ExportJsonDataLabel")?.FirstOrDefault().Value;
-            POINamesOnMapImageCheckBox.Content = App.LocalizedStrings.Where(x => x.Key == "POINamesOnMapLabel")?.FirstOrDefault().Value;
-            LanguageHeader.Text = App.LocalizedStrings.Where(x => x.Key == "LanguageHeader")?.FirstOrDefault().Value;
+            ShowPOINamesOnMapCheckBox.Content = App.LocalizedStrings.Where(x => x.Key == "POINamesOnMapLabel")?.FirstOrDefault().Value;
             SaveButton.Content = App.LocalizedStrings.Where(x => x.Key == "SaveButtonText")?.FirstOrDefault().Value;
 
-            var assembly = Assembly.GetExecutingAssembly();
-            foreach (var localization in assembly.GetManifestResourceNames().Where(x => x.EndsWith(".json")))
+            App.ConfigService.LoadConfig();
+            var config = App.ConfigService.Config;
+            
+            ExportPathTextBox.Text = config.ExportPath;
+            ExportJsonDataCheckBox.IsChecked = config.ExportJsonData;
+            ShowPOINamesOnMapCheckBox.IsChecked = config.ShowMapPOINames;
+        }
+
+        private void BrowseButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            var dialog = new CommonOpenFileDialog
             {
-                var culture = new CultureInfo(localization.Replace("LeakerUtility.Resources.Localization.", string.Empty).Split('.')[0]);
-                LanguageComboBox.Items.Add(culture.DisplayName);
-                LanguageComboBox.SelectedIndex = 0;
+                Title = "Select Export Path",
+                IsFolderPicker = true,
+                DefaultDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+            };
+
+            CommonFileDialogResult result = dialog.ShowDialog();
+
+            if (result == CommonFileDialogResult.Ok)
+            {
+                var config = App.ConfigService.Config;
+
+                config.ExportPath = dialog.FileName;
+                ExportPathTextBox.Text = dialog.FileName;
+                
+                App.ConfigService.SaveConfig(config);
             }
+        }
+
+        private void SaveButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            var config = App.ConfigService.Config;
+
+            Directory.CreateDirectory(ExportPathTextBox.Text);
+
+            config.ExportPath = ExportPathTextBox.Text;
+            config.ExportJsonData = (bool)ExportJsonDataCheckBox.IsChecked;
+            config.ShowMapPOINames = (bool)ShowPOINamesOnMapCheckBox.IsChecked;
+
+            App.ConfigService.SaveConfig(config);
         }
     }
 }

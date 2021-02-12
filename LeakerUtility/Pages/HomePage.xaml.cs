@@ -1,11 +1,13 @@
 ﻿using System;
 using System.IO;
-using System.Net;
 using System.Linq;
 using System.Windows;
+using System.Net.Http;
 using Newtonsoft.Json;
 using System.Reflection;
 using LeakerUtility.Models;
+using System.Threading.Tasks;
+using LeakerUtility.Constants;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.AvalonEdit.Highlighting.Xshd;
@@ -17,11 +19,11 @@ namespace LeakerUtility.Pages
     /// </summary>
     public partial class HomePage
     {
-        private readonly WebClient _client;
+        private readonly HttpClient _client;
 
         public HomePage()
         {
-            _client = new WebClient();
+            _client = new HttpClient();
 
             InitializeComponent();
             InitializeJsonDocument();
@@ -31,30 +33,22 @@ namespace LeakerUtility.Pages
             NewCosmeticsDataButton.Content = App.LocalizedStrings.Where(x => x.Key == "NewCosmeticsDataButtonText")?.FirstOrDefault().Value;
             BRNewsDataButton.Content = App.LocalizedStrings.Where(x => x.Key == "BRNewsDataButtonText")?.FirstOrDefault().Value;
             ShopSectionsDataButton.Content = App.LocalizedStrings.Where(x => x.Key == "ShopSectionsDataButtonText")?.FirstOrDefault().Value;
-        }
 
-		public void InitializeJsonDocument()
-        {
-            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("LeakerUtility.Resources.Files.JsonFormatting.xshd"))
-            using (var reader = new System.Xml.XmlTextReader(stream))
-            {
-                var highlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
-
-                JsonOutput.Document = new TextDocument();
-                JsonOutput.SyntaxHighlighting = highlighting;
-            }
+            App.ConfigService.LoadConfig();
         }
 
         private async void AESDataButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                var data = await _client.DownloadStringTaskAsync("https://fortnite-api.com/v2/aes");
-                var json = JsonConvert.DeserializeObject<FortniteAPIResponse<AES>>(data).Data;
+                var config = App.ConfigService.Config;
 
-                var jsonString = JsonConvert.SerializeObject(json, Formatting.Indented);
+                var json = await SendAPIRequest<FortniteAPIResponse<AES>>(FortniteAPI.AES_ENDPOINT);
+                var jsonString = JsonConvert.SerializeObject(json.Data, Formatting.Indented);
 
-                File.WriteAllText("aes_data.json", jsonString);
+                if (config.ExportJsonData && Directory.Exists(config.ExportPath))
+                    File.WriteAllText(config.ExportPath + "\\aes_data.json", jsonString);
+
                 JsonOutput.Document.Text = jsonString;
             }
             catch (Exception ex)
@@ -67,13 +61,22 @@ namespace LeakerUtility.Pages
         {
             try
             {
-                var data = await _client.DownloadStringTaskAsync("https://fortnite-api.com/v1/map");
-                var json = JsonConvert.DeserializeObject<FortniteAPIResponse<Map>>(data).Data;
+                var config = App.ConfigService.Config;
 
-                var jsonString = JsonConvert.SerializeObject(json, Formatting.Indented);
+                var json = await SendAPIRequest<FortniteAPIResponse<Map>>(FortniteAPI.MAP_ENDPOINT);
+                var jsonString = JsonConvert.SerializeObject(json.Data, Formatting.Indented);
 
-                File.WriteAllText("map_data.json", jsonString);
-                await _client.DownloadFileTaskAsync(json.Images.Blank, "map_image.png");
+                if (Directory.Exists(config.ExportPath))
+                {
+                    if (config.ExportJsonData)
+                        File.WriteAllText(config.ExportPath + "\\map_data.json", jsonString);
+
+                    if (config.ShowMapPOINames)
+                        await DownloadImage(json.Data.Images.POIs, config.ExportPath + "\\map_image.png");
+                    else
+                        await DownloadImage(json.Data.Images.Blank, config.ExportPath + "\\map_image.png");
+                }
+
                 JsonOutput.Document.Text = jsonString;
             }
             catch (Exception ex)
@@ -86,12 +89,14 @@ namespace LeakerUtility.Pages
         {
             try
             {
-                var data = await _client.DownloadStringTaskAsync("https://fortnite-api.com/v2/cosmetics/br/new");
-                var json = JsonConvert.DeserializeObject<FortniteAPIResponse<NewCosmetics>>(data).Data;
+                var config = App.ConfigService.Config;
 
-                var jsonString = JsonConvert.SerializeObject(json, Formatting.Indented);
+                var json = await SendAPIRequest<FortniteAPIResponse<NewCosmetics>>(FortniteAPI.NEW_COSMETICS_ENDPOINT);
+                var jsonString = JsonConvert.SerializeObject(json.Data, Formatting.Indented);
 
-                File.WriteAllText("new_cosmetics_data.json", jsonString);
+                if (config.ExportJsonData && Directory.Exists(config.ExportPath))
+                    File.WriteAllText(config.ExportPath + "\\new_cosmetics_data.json", jsonString);
+
                 JsonOutput.Document.Text = jsonString;
             }
             catch (Exception ex)
@@ -104,13 +109,15 @@ namespace LeakerUtility.Pages
         {
             try
             {
-                var data = await _client.DownloadStringTaskAsync("https://fortnite-api.com/v2/news/br");
-                var json = JsonConvert.DeserializeObject<FortniteAPIResponse<News>>(data).Data;
+                var config = App.ConfigService.Config;
 
-                var jsonString = JsonConvert.SerializeObject(json, Formatting.Indented);
+                var json = await SendAPIRequest<FortniteAPIResponse<News>>(FortniteAPI.BR_NEWS_ENDPOINT);
+                var jsonString = JsonConvert.SerializeObject(json.Data, Formatting.Indented);
 
-                File.WriteAllText("news_data.json", jsonString);
-                await _client.DownloadFileTaskAsync(json.Image, "news_image.gif");
+                if (config.ExportJsonData && Directory.Exists(config.ExportPath))
+                    File.WriteAllText(config.ExportPath + "\\news_data.json", jsonString);
+
+                await DownloadImage(json.Data.Image, config.ExportPath + "\\news_image.gif");
                 JsonOutput.Document.Text = jsonString;
             }
             catch (Exception ex)
@@ -123,20 +130,51 @@ namespace LeakerUtility.Pages
         {
             try
             {
-                var data = await _client.DownloadStringTaskAsync("https://benbotfn.tk/api/v1/calendar");
-                var json = JsonConvert.DeserializeObject<Calendar>(data);
+                var config = App.ConfigService.Config;
+
+                var json = await SendAPIRequest<Calendar>(BenbotFN.CALENDAR_ENDPOINT);
 
                 var clientEvents = json.Channels.Where(x => x.Key == "client-events")?.FirstOrDefault().Value;
                 var shopSections = clientEvents.States[0].State.sectionStoreEnds;
 
                 var jsonString = JsonConvert.SerializeObject(shopSections, Formatting.Indented);
 
-                File.WriteAllText("shop_sections_data.json", jsonString);
+                if (config.ExportJsonData && Directory.Exists(config.ExportPath))
+                    File.WriteAllText(config.ExportPath + "\\shop_sections_data.json", jsonString);
+
                 JsonOutput.Document.Text = jsonString;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Failed to export Shop Sections data.\nException Message: {ex.Message}", "Exception Occurred", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private async Task<T> SendAPIRequest<T>(string url)
+        {
+            var response = await _client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+
+            var data = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<T>(data);
+        }
+
+        private async Task DownloadImage(string url, string path)
+        {
+            var response = await _client.GetAsync(url);
+            using (var fileStream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                await response.Content.CopyToAsync(fileStream);
+        }
+
+        private void InitializeJsonDocument()
+        {
+            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("LeakerUtility.Resources.Files.JsonFormatting.xshd"))
+            using (var reader = new System.Xml.XmlTextReader(stream))
+            {
+                var highlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
+
+                JsonOutput.Document = new TextDocument();
+                JsonOutput.SyntaxHighlighting = highlighting;
             }
         }
     }
