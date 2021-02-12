@@ -150,6 +150,50 @@ namespace LeakerUtility.Pages
             }
         }
 
+        private async void EventFlagsDataButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var config = App.ConfigService.Config;
+
+                var json = await SendAPIRequest<Calendar>(BenbotFN.CALENDAR_ENDPOINT);
+
+                var clientEvents = json.Channels.Where(x => x.Key == "client-events")?.FirstOrDefault().Value;
+                var eventFlags = clientEvents.States[0].ActiveEvents;
+
+                var jsonString = JsonConvert.SerializeObject(eventFlags, Formatting.Indented);
+
+                if (config.ExportJsonData && Directory.Exists(config.ExportPath))
+                    File.WriteAllText(config.ExportPath + "\\event_flags_data.json", jsonString);
+
+                JsonOutput.Document.Text = jsonString;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to export Event Flags data.\nException Message: {ex.Message}", "Exception Occurred", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private async void CalendarDataButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var config = App.ConfigService.Config;
+
+                var json = await SendAPIRequest<Calendar>(BenbotFN.CALENDAR_ENDPOINT);
+                var jsonString = JsonConvert.SerializeObject(json, Formatting.Indented);
+
+                if (config.ExportJsonData && Directory.Exists(config.ExportPath))
+                    File.WriteAllText(config.ExportPath + "\\calendar_data.json", jsonString);
+
+                JsonOutput.Document.Text = jsonString;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to export Calendar data.\nException Message: {ex.Message}", "Exception Occurred", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
         private async Task<T> SendAPIRequest<T>(string url)
         {
             var response = await _client.GetAsync(url);

@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Globalization;
 using LeakerUtility.Services;
 using System.Collections.Generic;
+using System;
 
 namespace LeakerUtility
 {
@@ -23,18 +24,30 @@ namespace LeakerUtility
             var assembly = Assembly.GetExecutingAssembly();
             var currentCulture = CultureInfo.CurrentCulture;
 
-            if (currentCulture.IsNeutralCulture)
+            try
             {
-                using (var stream = assembly.GetManifestResourceStream($"LeakerUtility.Resources.Localization.{CultureInfo.CurrentCulture.Name}.json"))
-                using (var reader = new StreamReader(stream))
+                if (currentCulture.IsNeutralCulture)
                 {
-                    var data = JsonConvert.DeserializeObject<Dictionary<string, string>>(reader.ReadToEnd());
-                    LocalizedStrings = data;
+                    using (var stream = assembly.GetManifestResourceStream($"LeakerUtility.Resources.Localization.{CultureInfo.CurrentCulture.Name}.json"))
+                    using (var reader = new StreamReader(stream))
+                    {
+                        var data = JsonConvert.DeserializeObject<Dictionary<string, string>>(reader.ReadToEnd());
+                        LocalizedStrings = data;
+                    }
+                }
+                else
+                {
+                    using (var stream = assembly.GetManifestResourceStream($"LeakerUtility.Resources.Localization.{CultureInfo.CurrentCulture.Name.Split('-')[0]}.json"))
+                    using (var reader = new StreamReader(stream))
+                    {
+                        var data = JsonConvert.DeserializeObject<Dictionary<string, string>>(reader.ReadToEnd());
+                        LocalizedStrings = data;
+                    }
                 }
             }
-            else
+            catch
             {
-                using (var stream = assembly.GetManifestResourceStream($"LeakerUtility.Resources.Localization.{CultureInfo.CurrentCulture.Name.Split('-')[0]}.json"))
+                using (var stream = assembly.GetManifestResourceStream($"LeakerUtility.Resources.Localization.en.json"))
                 using (var reader = new StreamReader(stream))
                 {
                     var data = JsonConvert.DeserializeObject<Dictionary<string, string>>(reader.ReadToEnd());
