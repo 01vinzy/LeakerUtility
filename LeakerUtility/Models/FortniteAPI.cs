@@ -52,18 +52,6 @@ namespace LeakerUtility.Models
         public DateTime ActiveSince { get; set; }
     }
 
-    public class NewsData
-    {
-        [JsonProperty("br")]
-        public News BattleRoyaleNews { get; set; }
-
-        [JsonProperty("stw")]
-        public News SaveTheWorldNews { get; set; }
-
-        [JsonProperty("creative")]
-        public News CreativeNews { get; set; }
-    }
-
     public class News
     {
         [JsonProperty("hash")]
@@ -265,7 +253,7 @@ namespace LeakerUtility.Models
         public string Featured { get; set; }
 
         [JsonProperty("other")]
-        public string Other { get; set; }
+        public dynamic Other { get; set; }
     }
 
     public class Map

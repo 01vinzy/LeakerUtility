@@ -87,6 +87,9 @@ namespace LeakerUtility
                 Type pageType = GetPageType(menuItem);
                 if (ContentFrame.CurrentSourcePageType != pageType)
                     ContentFrame.Navigate(pageType);
+
+                var selectedItem = (NavigationViewItem)NavView.SelectedItem;
+                NavView.Header = App.LocalizedStrings.Where(x => x.Key == (string)selectedItem.Content + "PageHeader")?.FirstOrDefault().Value;
             }
         }
 

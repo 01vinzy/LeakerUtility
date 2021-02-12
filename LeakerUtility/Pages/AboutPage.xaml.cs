@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Linq;
+using System.Diagnostics;
 using System.Windows.Input;
 
 namespace LeakerUtility.Pages
@@ -11,6 +12,8 @@ namespace LeakerUtility.Pages
         public AboutPage()
         {
             InitializeComponent();
+
+            AboutTextBlock.Text = App.LocalizedStrings.Where(x => x.Key == "AboutTextBlock")?.FirstOrDefault().Value;
         }
 
         private void GitHubLabel_MouseDown(object sender, MouseButtonEventArgs e)

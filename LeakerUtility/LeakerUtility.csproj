@@ -118,6 +118,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <EmbeddedResource Include="Resources\Files\JsonFormatting.xshd" />
+    <EmbeddedResource Include="Resources\Localization\en.json" />
     <Resource Include="Resources\Files\FA-Brands-Regular.otf" />
     <Resource Include="Resources\Images\icon.ico" />
     <Resource Include="Resources\Images\TwitterIcon.png" />

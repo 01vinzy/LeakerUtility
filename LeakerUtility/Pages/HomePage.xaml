@@ -9,12 +9,16 @@
 
     <ScrollViewer Width="754">
         <Grid Margin="24,0">
-            <avalonedit:TextEditor x:Name="JSONOutput"
-                FontFamily="Consolas" FontSize="10pt"
+            <avalonedit:TextEditor x:Name="JsonOutput"
+                FontFamily="Consolas" FontSize="8pt"
                 ShowLineNumbers="True" IsReadOnly="True"
                 HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
-                MaxHeight="391" Margin="0,0,256,0" Background="#FF262626"/>
-            <Button Content="Generate one thing" Margin="500,52,0,307" Style="{StaticResource AccentButtonStyle}" Click="Button_Click"/>
+                MaxHeight="391" Margin="0,0,175,0" Background="{DynamicResource SystemControlPageBackgroundChromeLowBrush}"/>
+            <Button Content="AES Data" Margin="556,0,0,351" Style="{StaticResource AccentButtonStyle}" Click="AESDataButton_Click" Height="40" Width="150"/>
+            <Button Content="Map Data" Margin="556,60,0,291" Style="{StaticResource AccentButtonStyle}" Click="MapDataButton_Click" Height="40" Width="150"/>            
+            <Button Content="New Cosmetics Data" Margin="556,120,0,231" Style="{StaticResource AccentButtonStyle}" Click="NewCosmeticsDataButton_Click" Height="40" Width="150"/>
+            <Button Content="BR News Data" Margin="556,180,0,171" Style="{StaticResource AccentButtonStyle}" Click="BRNewsDataButton_Click" Height="40" Width="150"/>
+            <Button Content="Shop Sections Data" Margin="556,240,0,111" Style="{StaticResource AccentButtonStyle}" Click="ShopSectionsDataButton_Click" Height="40" Width="150"/>
 
         </Grid>
     </ScrollViewer>
