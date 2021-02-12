@@ -22,12 +22,12 @@ namespace LeakerUtility
             ConfigService = new ConfigService();
             ConfigService.LoadConfig();
 
-            Directory.CreateDirectory(ConfigService.Config.ExportPath);
-
             var config = ConfigService.Config;
             var assembly = Assembly.GetExecutingAssembly();
             try
             {
+                Directory.CreateDirectory(config.ExportPath);
+
                 if (!string.IsNullOrEmpty(config.Language))
                 {
                     var culture = CultureInfo.GetCultures(CultureTypes.NeutralCultures).Where(x => x.DisplayName == config.Language)?.FirstOrDefault();

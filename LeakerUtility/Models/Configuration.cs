@@ -1,6 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Newtonsoft.Json;
-using System.Reflection;
 
 namespace LeakerUtility.Models
 {
@@ -20,7 +20,7 @@ namespace LeakerUtility.Models
 
         public Configuration()
         {
-            ExportPath = Path.Combine(Assembly.GetExecutingAssembly().Location, "LeakerUtility", "Exports");
+            ExportPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "LeakerUtility");
             ExportJsonData = true;
             ShowMapPOINames = false;
             Language = "English";
