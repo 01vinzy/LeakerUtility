@@ -7,12 +7,12 @@ using System.Windows;
 // Ogólne informacje o zestawie są kontrolowane poprzez następujący 
 // zestaw atrybutów. Zmień wartości tych atrybutów, aby zmodyfikować informacje
 // powiązane z zestawem.
-[assembly: AssemblyTitle("FNLeaking")]
-[assembly: AssemblyDescription("Leaking Tool")]
+[assembly: AssemblyTitle("LeakerUtility")]
+[assembly: AssemblyDescription("A multifunctional and open-source program used for generating data from Fortnite's backend using Fortnite-API.com and benbotfn.tk.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("FNLeaking Inc")]
-[assembly: AssemblyProduct("FNLeaking")]
-[assembly: AssemblyCopyright("Copyright © FNLeaking Inc 2021")]
+[assembly: AssemblyCompany("PeQuLeaks")]
+[assembly: AssemblyProduct("LeakerUtility")]
+[assembly: AssemblyCopyright("Copyright © PeQuLeaks 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -51,5 +51,5 @@ using System.Windows;
 // Możesz określić wszystkie wartości lub użyć domyślnych numerów kompilacji i poprawki
 // przy użyciu symbolu „*”, tak jak pokazano poniżej:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("2.0.0.1")]
+[assembly: AssemblyFileVersion("2.0.0.1")]
