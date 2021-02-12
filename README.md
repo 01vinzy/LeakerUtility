@@ -1,8 +1,8 @@
 # LeakerUtility
-LeakerUtility is a multifunctional and open-source program used for generating data from Fortnite's backend using Fortnite-API.com and benbotfn.tk.
+LeakerUtility is a multifunctional and open-source program used for generating data from Fortnite's backend using [Fortnite-API.com](https://fortnite-api.com/) and [benbotfn.tk](https://benbotfn.tk).
 
-**For support, open an issue with appropriate and informative content in order for you to receive the best help.
-**For contributions, fork the repository, make your changes, then submit a detailed and descriptive pull request.
+- For support, open an issue with appropriate and informative content in order for you to receive the best help.
+- For contributions, fork the repository, make your changes, then submit a detailed and descriptive pull request.
 
 ### Contributors
 - [**@PeQuLeaks**](https://twitter.com/PeQuLeaks)
