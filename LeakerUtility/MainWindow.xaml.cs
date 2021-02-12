@@ -32,7 +32,14 @@ namespace LeakerUtility
         }
 
         private void NavView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
-            => ContentFrame.GoBack();
+        {
+            ContentFrame.GoBack();
+            ContentFrame.ContentRendered += delegate
+            {
+                var pageType = ContentFrame.Content.GetType();
+                NavView.Header = App.LocalizedStrings.Where(x => x.Key == pageType.Name + "Header")?.FirstOrDefault().Value;
+            };
+        }
 
         private void NavView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
