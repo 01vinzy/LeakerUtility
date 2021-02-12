@@ -14,13 +14,13 @@
                 ShowLineNumbers="True" IsReadOnly="True"
                 HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
                 MaxHeight="391" Margin="0,0,175,0" Background="{DynamicResource SystemControlPageBackgroundChromeLowBrush}"/>
-            <Button x:Name="AESDataButton" Content="AES Data" Margin="556,0,0,351" Style="{StaticResource AccentButtonStyle}" Click="AESDataButton_Click" Height="40" Width="150"/>
-            <Button x:Name="MapDataButton" Content="Map Data" Margin="556,55,0,296" Style="{StaticResource AccentButtonStyle}" Click="MapDataButton_Click" Height="40" Width="150"/>
-            <Button x:Name="NewCosmeticsDataButton" Content="New Cosmetics Data" Margin="556,115,0,236" Style="{StaticResource AccentButtonStyle}" Click="NewCosmeticsDataButton_Click" Height="40" Width="150"/>
+            <Button x:Name="AESDataButton" Content="AES Data" Margin="556,10,0,341" Style="{StaticResource AccentButtonStyle}" Click="AESDataButton_Click" Height="40" Width="150"/>
+            <Button x:Name="MapDataButton" Content="Map Data" Margin="556,65,0,286" Style="{StaticResource AccentButtonStyle}" Click="MapDataButton_Click" Height="40" Width="150"/>
+            <Button x:Name="NewCosmeticsDataButton" Content="New Cosmetics Data" Margin="556,120,0,231" Style="{StaticResource AccentButtonStyle}" Click="NewCosmeticsDataButton_Click" Height="40" Width="150"/>
             <Button x:Name="BRNewsDataButton" Content="BR News Data" Margin="556,175,0,176" Style="{StaticResource AccentButtonStyle}" Click="BRNewsDataButton_Click" Height="40" Width="150"/>
-            <Button x:Name="ShopSectionsDataButton" Content="Shop Sections Data" Margin="556,235,0,116" Style="{StaticResource AccentButtonStyle}" Click="ShopSectionsDataButton_Click" Height="40" Width="150"/>
-            <Button x:Name="EventFlagsDataButton" Content="Event Flags Data" Margin="556,295,0,56" Style="{StaticResource AccentButtonStyle}" Click="EventFlagsDataButton_Click" Height="40" Width="150"/>
-            <Button x:Name="CalendarDataButton" Content="All Calendar Data" Margin="556,350,0,1" Style="{StaticResource AccentButtonStyle}" Click="CalendarDataButton_Click" Height="40" Width="150"/>
+            <Button x:Name="ShopSectionsDataButton" Content="Shop Sections Data" Margin="556,230,0,121" Style="{StaticResource AccentButtonStyle}" Click="ShopSectionsDataButton_Click" Height="40" Width="150"/>
+            <Button x:Name="EventFlagsDataButton" Content="Event Flags Data" Margin="556,285,0,66" Style="{StaticResource AccentButtonStyle}" Click="EventFlagsDataButton_Click" Height="40" Width="150"/>
+            <Button x:Name="CalendarDataButton" Content="All Calendar Data" Margin="556,340,0,11" Style="{StaticResource AccentButtonStyle}" Click="CalendarDataButton_Click" Height="40" Width="150"/>
 
         </Grid>
     </ScrollViewer>
