@@ -19,6 +19,9 @@ namespace LeakerUtility.Pages
         private void GitHubLabel_MouseDown(object sender, MouseButtonEventArgs e)
             => Process.Start("https://github.com/PeQuLeaks");
 
+        private void YouTubeLabel_MouseDown(object sender, MouseButtonEventArgs e)
+            => Process.Start("https://www.youtube.com/channel/UC7v7uQSq0DgI-xO3S34LRgA?sub_confirmation=1");
+
         private void TwitterLabel_MouseDown(object sender, MouseButtonEventArgs e)
             => Process.Start("https://twitter.com/intent/follow?screen_name=PeQuLeaks");
     }
