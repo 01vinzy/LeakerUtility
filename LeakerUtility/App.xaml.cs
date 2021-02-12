@@ -20,6 +20,9 @@ namespace LeakerUtility
         public App()
         {
             ConfigService = new ConfigService();
+            ConfigService.LoadConfig();
+
+            Directory.CreateDirectory(ConfigService.Config.ExportPath);
 
             var assembly = Assembly.GetExecutingAssembly();
             var currentCulture = CultureInfo.CurrentCulture;

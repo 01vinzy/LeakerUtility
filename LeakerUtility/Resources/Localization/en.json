@@ -11,7 +11,7 @@
   "ShopSectionsDataButtonText": "Shop Sections Data",
 
   "AboutPageHeader": "About",
-  "AboutTextBlock": "LeakerUtility is a multifunctional and open-source program used for generating data from Fortnite's backend using Fortnite-API.com and benbotfn.tk.\n\nCurrent features include:\n\u2022 Generating an image of the Battle Royale map\n\u2022 Generating AES key data for decrypting game files\n\u2022 Generating new cosmetic data from the latest update\n\u2022 Generating the Battle Royale news feed as a .gif image\n\u2022 Generating Shop Section data to determine upcoming shop sections\n\np.s. use code \"darkblade\" #ad \n\n\n\n\n\n\n",
+  "AboutTextBlock": "LeakerUtility is a multifunctional and open-source program used for generating data from Fortnite's backend using Fortnite-API.com and benbotfn.tk.\n\nCurrent features include:\n\u2022 Generating an image of the Battle Royale map\n\u2022 Generating AES key data for decrypting game files\n\u2022 Generating new cosmetic data from the latest update\n\u2022 Generating the Battle Royale news feed as a .gif image\n\u2022 Generating Shop Section data to determine upcoming shop sections\n\nHuge thanks to Darkblade for his contributions! You can follow him on Twitter at @DarkbladeEU, or use code \"darkblade\" #ad to support him. \n\n\n\n\n\n\n",
 
   "SettingsPageHeader": "Settings",
   "ExportingHeader": "Exporting",
