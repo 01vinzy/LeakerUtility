@@ -162,7 +162,7 @@ namespace LeakerUtility.Pages
         private async Task DownloadImage(string url, string path)
         {
             var response = await _client.GetAsync(url);
-            using (var fileStream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+            using (var fileStream = File.Create(path))
                 await response.Content.CopyToAsync(fileStream);
         }
 
