@@ -8,13 +8,13 @@
 
     <ScrollViewer>
         <Grid Margin="24,0">
-            <ui:SimpleStackPanel HorizontalAlignment="Left">
+            <ui:SimpleStackPanel x:Name="GridPanel" HorizontalAlignment="Left">
                 <TextBlock x:Name="ExportingHeader" Text="Exporting" Style="{StaticResource BaseTextBlockStyle}" Margin="0,0,0,10" />
                 <TextBox x:Name="ExportPathTextBox" ui:ControlHelper.Header="JSON Export Path" Margin="0,0,0,10" Width="450" Grid.Column="0"/>
                 <Button HorizontalAlignment="Right" Style="{StaticResource AccentButtonStyle}" Content="..." Click="BrowseButton_Click" Margin="0,-42,0,10" />
 
                 <CheckBox x:Name="ExportJsonDataCheckBox" Content="Export JSON Data?" Margin="0,0,0,10" />
-                <CheckBox x:Name="ShowPOINamesOnMapCheckBox" Content="Show POI names on Map image?" Margin="0,0,0,25"/>
+                <CheckBox x:Name="POINamesOnMapCheckBox" Content="Show POI names on Map image?" Margin="0,0,0,25"/>
 
                 <Button x:Name="SaveButton" Content="Save" Style="{StaticResource AccentButtonStyle}" Width="80" Click="SaveButton_Click"/>
             </ui:SimpleStackPanel>

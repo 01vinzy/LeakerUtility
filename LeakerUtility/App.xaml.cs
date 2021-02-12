@@ -5,7 +5,6 @@ using System.Reflection;
 using System.Globalization;
 using LeakerUtility.Services;
 using System.Collections.Generic;
-using System;
 
 namespace LeakerUtility
 {
@@ -25,11 +24,10 @@ namespace LeakerUtility
             Directory.CreateDirectory(ConfigService.Config.ExportPath);
 
             var assembly = Assembly.GetExecutingAssembly();
-            var currentCulture = CultureInfo.CurrentCulture;
 
             try
             {
-                if (currentCulture.IsNeutralCulture)
+                if (CultureInfo.CurrentCulture.IsNeutralCulture)
                 {
                     using (var stream = assembly.GetManifestResourceStream($"LeakerUtility.Resources.Localization.{CultureInfo.CurrentCulture.Name}.json"))
                     using (var reader = new StreamReader(stream))
