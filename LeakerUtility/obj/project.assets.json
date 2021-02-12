@@ -6810,20 +6810,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\wikto\\.nuget\\packages\\": {}
+    "C:\\Users\\Darkblade\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wikto\\Downloads\\LeakerUtility-main\\LeakerUtility-main\\LeakerUtility\\LeakerUtility.csproj",
+      "projectUniqueName": "C:\\Users\\Darkblade\\Documents\\GitHub\\LeakerUtility\\LeakerUtility\\LeakerUtility.csproj",
       "projectName": "LeakerUtility",
-      "projectPath": "C:\\Users\\wikto\\Downloads\\LeakerUtility-main\\LeakerUtility-main\\LeakerUtility\\LeakerUtility.csproj",
-      "packagesPath": "C:\\Users\\wikto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\wikto\\Downloads\\LeakerUtility-main\\LeakerUtility-main\\LeakerUtility\\obj\\",
+      "projectPath": "C:\\Users\\Darkblade\\Documents\\GitHub\\LeakerUtility\\LeakerUtility\\LeakerUtility.csproj",
+      "packagesPath": "C:\\Users\\Darkblade\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Darkblade\\Documents\\GitHub\\LeakerUtility\\LeakerUtility\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\wikto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Darkblade\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

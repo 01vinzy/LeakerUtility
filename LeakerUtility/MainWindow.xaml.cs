@@ -26,7 +26,6 @@ namespace LeakerUtility
             var settingsItem = NavView.SettingsItem as NavigationViewItem;
             settingsItem.Content = App.LocalizedStrings.Where(x => x.Key == "SettingsNavigationItem")?.FirstOrDefault().Value;
 
-            //ensure the custom title bar does not overlap window caption controls
             Thickness currMargin = AppTitleBar.Margin;
             AppTitleBar.Margin = new Thickness(currMargin.Left, currMargin.Top, TitleBar.GetSystemOverlayRightInset(this), currMargin.Bottom);
         }

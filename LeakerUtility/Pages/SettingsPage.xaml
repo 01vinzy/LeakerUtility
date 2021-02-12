@@ -16,6 +16,10 @@
                 <CheckBox x:Name="ExportJsonDataCheckBox" Content="Export JSON Data?" Margin="0,0,0,10" />
                 <CheckBox x:Name="POINamesOnMapCheckBox" Content="Show POI names on Map image?" Margin="0,0,0,25"/>
 
+
+                <TextBlock x:Name="LanguagesHeader" Text="Languages" Style="{StaticResource BaseTextBlockStyle}" Margin="0,0,0,10" />
+                <ComboBox x:Name="LanguagesComboBox" Width="125" Margin="0,0,0,25"/>
+                
                 <Button x:Name="SaveButton" Content="Save" Style="{StaticResource AccentButtonStyle}" Width="80" Click="SaveButton_Click"/>
             </ui:SimpleStackPanel>
         </Grid>

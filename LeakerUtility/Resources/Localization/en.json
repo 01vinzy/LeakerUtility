@@ -13,12 +13,13 @@
   "CalendarDataButtonText": "All Calendar Data",
 
   "AboutPageHeader": "About",
-  "AboutTextBlock": "LeakerUtility is a multifunctional and open-source program used for generating data from Fortnite's backend using Fortnite-API.com and benbotfn.tk.\n\nCurrent features include:\n\u2022 Generating an image of the Battle Royale map\n\u2022 Generating AES key data for decrypting game files\n\u2022 Generating new cosmetic data from the latest update\n\u2022 Generating the Battle Royale news feed as a .gif image\n\u2022 Generating Shop Section data to determine upcoming shop sections\n\u2002 Generating Calendar data to view related info such as enabled game modes\n\u2002 Generating EventFlags data to see what events are currently active\n\u2002 Localization to support people who don't use English as their main language\n\nHuge thanks to Darkblade for his contributions! You can follow him on Twitter at @DarkbladeEU, or use code \"darkblade\" #ad to support him. \n\n\n\n\n\n\n",
+  "AboutTextBlock": "LeakerUtility is a multifunctional and open-source program used for generating data from Fortnite's backend using Fortnite-API.com and benbotfn.tk.\n\nCurrent features include:\n\u2022 Generating an image of the Battle Royale map\n\u2022 Generating AES key data for decrypting game files\n\u2022 Generating new cosmetic data from the latest update\n\u2022 Generating the Battle Royale news feed as a .gif image\n\u2022 Generating Shop Section data to determine upcoming shop sections\n\u2022 Generating Calendar data to view related info such as enabled game modes\n\u2022 Generating EventFlags data to see what events are currently active\n\u2022 Localization to support people who don't use English as their main language\n\nHuge thanks to Darkblade for his contributions! You can follow him on Twitter at @DarkbladeEU, or use code \"darkblade\" #ad to support him. \n\n\n\n\n\n\n",
 
   "SettingsPageHeader": "Settings",
   "ExportingHeaderText": "Exporting",
   "ExportPathTextBoxHeaderText": "JSON Export Path",
   "ExportJsonDataCheckBoxText": "Export JSON Data?",
   "POINamesOnMapCheckBoxText": "Show POI names on Map image?",
+  "LanguagesHeaderText": "Languages",
   "SaveButtonText": "Save"
 }

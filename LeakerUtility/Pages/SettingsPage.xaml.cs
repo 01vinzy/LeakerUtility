@@ -2,6 +2,9 @@
 using System.IO;
 using System.Linq;
 using System.Windows;
+using System.Reflection;
+using System.Diagnostics;
+using System.Globalization;
 using System.Windows.Controls;
 using ModernWpf.Controls.Primitives;
 using Microsoft.WindowsAPICodePack.Dialogs;
@@ -47,6 +50,14 @@ namespace LeakerUtility.Pages
             ExportPathTextBox.Text = config.ExportPath;
             ExportJsonDataCheckBox.IsChecked = config.ExportJsonData;
             POINamesOnMapCheckBox.IsChecked = config.ShowMapPOINames;
+
+            var assembly = Assembly.GetExecutingAssembly();
+            foreach (var localization in assembly.GetManifestResourceNames().Where(x => x.EndsWith(".json")))
+            {
+                var culture = new CultureInfo(localization.Replace("LeakerUtility.Resources.Localization.", string.Empty).Split('.')[0]);
+                LanguagesComboBox.Items.Add(culture.DisplayName);
+            }
+            LanguagesComboBox.SelectedIndex = LanguagesComboBox.Items.IndexOf(config.Language);
         }
 
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
@@ -74,14 +85,28 @@ namespace LeakerUtility.Pages
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             var config = App.ConfigService.Config;
+            var currentLanguage = config.Language;
 
             Directory.CreateDirectory(ExportPathTextBox.Text);
+            var selectedLanguage = LanguagesComboBox.SelectedItem.ToString();
 
             config.ExportPath = ExportPathTextBox.Text;
             config.ExportJsonData = (bool)ExportJsonDataCheckBox.IsChecked;
             config.ShowMapPOINames = (bool)POINamesOnMapCheckBox.IsChecked;
+            config.Language = selectedLanguage;
 
             App.ConfigService.SaveConfig(config);
+
+            if (selectedLanguage != currentLanguage)
+            {
+                MessageBoxResult result = MessageBox.Show("A restart is required to apply the selected language. Your changes will not take effect until you restart. \n\nWould you like to restart now?", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    Process.Start(Application.ResourceAssembly.Location);
+                    Application.Current.Shutdown();
+                }
+            }
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Globalization;
 using LeakerUtility.Services;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LeakerUtility
 {
@@ -14,7 +15,7 @@ namespace LeakerUtility
     public partial class App : Application
     {
         public static IConfigService ConfigService { get; private set; }
-        public static Dictionary<string, string> LocalizedStrings { get; private set; }
+        public static Dictionary<string, string> LocalizedStrings { get; set; }
 
         public App()
         {
@@ -23,13 +24,14 @@ namespace LeakerUtility
 
             Directory.CreateDirectory(ConfigService.Config.ExportPath);
 
+            var config = ConfigService.Config;
             var assembly = Assembly.GetExecutingAssembly();
-
             try
             {
-                if (CultureInfo.CurrentCulture.IsNeutralCulture)
+                if (!string.IsNullOrEmpty(config.Language))
                 {
-                    using (var stream = assembly.GetManifestResourceStream($"LeakerUtility.Resources.Localization.{CultureInfo.CurrentCulture.Name}.json"))
+                    var culture = CultureInfo.GetCultures(CultureTypes.NeutralCultures).Where(x => x.DisplayName == config.Language)?.FirstOrDefault();
+                    using (var stream = assembly.GetManifestResourceStream($"LeakerUtility.Resources.Localization.{culture.Name}.json"))
                     using (var reader = new StreamReader(stream))
                     {
                         var data = JsonConvert.DeserializeObject<Dictionary<string, string>>(reader.ReadToEnd());
@@ -38,13 +40,25 @@ namespace LeakerUtility
                 }
                 else
                 {
-                    using (var stream = assembly.GetManifestResourceStream($"LeakerUtility.Resources.Localization.{CultureInfo.CurrentCulture.Name.Split('-')[0]}.json"))
-                    using (var reader = new StreamReader(stream))
+                    if (CultureInfo.CurrentCulture.IsNeutralCulture)
                     {
-                        var data = JsonConvert.DeserializeObject<Dictionary<string, string>>(reader.ReadToEnd());
-                        LocalizedStrings = data;
+                        using (var stream = assembly.GetManifestResourceStream($"LeakerUtility.Resources.Localization.{CultureInfo.CurrentCulture.Name}.json"))
+                        using (var reader = new StreamReader(stream))
+                        {
+                            var data = JsonConvert.DeserializeObject<Dictionary<string, string>>(reader.ReadToEnd());
+                            LocalizedStrings = data;
+                        }
                     }
-                }
+                    else
+                    {
+                        using (var stream = assembly.GetManifestResourceStream($"LeakerUtility.Resources.Localization.{CultureInfo.CurrentCulture.Name.Split('-')[0]}.json"))
+                        using (var reader = new StreamReader(stream))
+                        {
+                            var data = JsonConvert.DeserializeObject<Dictionary<string, string>>(reader.ReadToEnd());
+                            LocalizedStrings = data;
+                        }
+                    }
+                }                
             }
             catch
             {

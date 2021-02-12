@@ -15,11 +15,15 @@ namespace LeakerUtility.Models
         [JsonProperty("MapPOINames")]
         public bool ShowMapPOINames { get; set; }
 
+        [JsonProperty("Language")]
+        public string Language { get; set; }
+
         public Configuration()
         {
             ExportPath = Path.Combine(Assembly.GetExecutingAssembly().Location, "LeakerUtility", "Exports");
             ExportJsonData = true;
             ShowMapPOINames = false;
+            Language = "English";
         }
     }
 }
