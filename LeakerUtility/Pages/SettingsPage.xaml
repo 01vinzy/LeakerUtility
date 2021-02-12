@@ -15,12 +15,9 @@
                 <CheckBox x:Name="POINamesOnMapImageCheckBox" Content="POI names on Map image" Margin="0,0,0,25"/>
 
                 <TextBlock x:Name="LanguageHeader" Text="Language" Style="{StaticResource BaseTextBlockStyle}" Margin="0,0,0,10" />
-                <ComboBox x:Name="LanugageComboBox" Width="150" Margin="0,0,0,25">
-                    <ComboBoxItem Content="English" IsSelected="True" />
-                </ComboBox>
+                <ComboBox x:Name="LanguageComboBox" Width="150" Margin="0,0,0,25" />
 
                 <Button x:Name="SaveButton" Content="Save" Style="{StaticResource AccentButtonStyle}" Width="80"/>
-
             </ui:SimpleStackPanel>
         </Grid>
     </ScrollViewer>

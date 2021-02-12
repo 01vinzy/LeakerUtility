@@ -16,15 +16,9 @@ namespace LeakerUtility
 
             NavView.SelectedItem = NavView.MenuItems.OfType<NavigationViewItem>().First();
             Navigate(NavView.SelectedItem);
-
-            Loaded += delegate
-            {
-                UpdateAppTitle();
-            };
-
         }
 
-        void UpdateAppTitle()
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             foreach (NavigationViewItem navigationItem in NavView.MenuItems)
                 navigationItem.Content = App.LocalizedStrings.Where(x => x.Key == (string)navigationItem.Content + "NavigationItem")?.FirstOrDefault().Value;

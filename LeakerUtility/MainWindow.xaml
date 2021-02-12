@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:ui="http://schemas.modernwpf.com/2019"        
+    xmlns:ui="http://schemas.modernwpf.com/2019"
     xmlns:pages="clr-namespace:LeakerUtility.Pages"
     mc:Ignorable="d"
     Width="800" Height="500"
@@ -12,7 +12,7 @@
     WindowStartupLocation="CenterScreen"
     ResizeMode="CanMinimize"
     ui:WindowHelper.UseModernWindowStyle="True"
-    ui:TitleBar.ExtendViewIntoTitleBar="True">
+    ui:TitleBar.ExtendViewIntoTitleBar="True" Loaded="Window_Loaded">
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />

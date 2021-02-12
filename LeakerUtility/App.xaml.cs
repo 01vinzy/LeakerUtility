@@ -1,9 +1,9 @@
-﻿using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Reflection;
+﻿using System.IO;
 using System.Windows;
+using Newtonsoft.Json;
+using System.Reflection;
+using System.Globalization;
+using System.Collections.Generic;
 
 namespace LeakerUtility
 {
